@@ -1,5 +1,6 @@
 import React from 'react'
 import Sidebar from './Sidebar'
+import Gallery from "./Gallery";
 
 function Home() {
     return (
@@ -7,7 +8,7 @@ function Home() {
         <div className="container">
           <div className="row">
             <Sidebar />
-            {/* Gallery */}
+            <Gallery/>
          </div>
         </div>
       </section>
