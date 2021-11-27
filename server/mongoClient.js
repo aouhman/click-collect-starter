@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const DB = 'marketplace'
-const URI = `mongodb+srv://root:root@cluster-clickcollect.of1ue.mongodb.net/${DB}?retryWrites=true&w=majority`;
+const URI = `mongodb+srv://usertest:test123@cluster-clickcollect.j9nty.mongodb.net/${DB}?retryWrites=true&w=majority`
 
 const MongoDBClient = {
     initialize: () => {

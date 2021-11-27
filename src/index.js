@@ -1,27 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import FiltersProvider from "./context";
 import App from "./App";
-import {
-    ApolloClient,
-    InMemoryCache,
-    ApolloProvider,
-    useQuery,
-    gql
-} from "@apollo/client";
 
 const client = new ApolloClient({
-    uri: 'http://localhost:2021/graphql',
-    cache: new InMemoryCache()
+  uri: "http://localhost:2021/graphql",
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.render(
-    <React.StrictMode>
-        <ApolloProvider client={client}>
-            <FiltersProvider>
-                <App/>
-            </FiltersProvider>
-        </ApolloProvider>
-    </React.StrictMode>,
-    document.getElementById("root")
+  <React.StrictMode>
+    <ApolloProvider client={client}>
+      <FiltersProvider>
+        <App />
+      </FiltersProvider>
+    </ApolloProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
