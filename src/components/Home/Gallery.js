@@ -43,7 +43,7 @@ function Gallery({ category }) {
       <div className="container-fluid" style={styles.gallery}>
         <div className="row">
           {products.map((product) => (
-            <Card {...product} />
+            <Card product={product} />
           ))}
         </div>
       </div>
