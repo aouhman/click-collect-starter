@@ -7,10 +7,12 @@ import {addToCart} from "../lib/redux/reducers";
 function Product({location: {props: {product}}}) {
     const [details, setDetails] = React.useState({quantity:1,size:"small"});
     const handleOnChange = (e) => setDetails(prevState => ({...prevState,[e.target.name]:e.target.value}))
+    const dispatch = useDispatch();
     const addCart = () => {
-      const item ={id:product.id,name:product.name,filter:product.filter}
+      const item ={id:product.id,name:product.name,price:product.price,filter:product.filter}
+        dispatch(addToCart({...item,...details}))
+
     }
-    dispatch(addToCart({...item,...details}))
     return (
         <section className="pt-5 pb-5">
             <div className="container">
@@ -54,7 +56,7 @@ function Product({location: {props: {product}}}) {
                             </div>
                         </div>
                         <button className="btn btn-full-width btn-lg btn-outline-orange"
-                        onClick={addToCart}>Add to cart</button>
+                        onClick={addCart}>Add to cart</button>
                     </div>
                 </div>
                 <div className="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
