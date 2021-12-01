@@ -1,7 +1,16 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {addToCart} from "../lib/redux/reducers";
+
 
 function Product({location: {props: {product}}}) {
+    const [details, setDetails] = React.useState({quantity:1,size:"small"});
+    const handleOnChange = (e) => setDetails(prevState => ({...prevState,[e.target.name]:e.target.value}))
+    const addCart = () => {
+      const item ={id:product.id,name:product.name,filter:product.filter}
+    }
+    dispatch(addToCart({...item,...details}))
     return (
         <section className="pt-5 pb-5">
             <div className="container">
@@ -28,8 +37,9 @@ function Product({location: {props: {product}}}) {
                         <div className="row mt-4">
                             <div className="col-6">
                                 <label for="size">Size</label>
-                                <select value='small' name="size" id="size"
-                                        className="custom-select form-control  mb-4">
+                                <select value={details.size} name="size" id="size"
+                                        className="custom-select form-control  mb-4"
+                                        onChange={handleOnChange}>
                                     <option selected="">Size</option>
                                     <option value="small">Small</option>
                                     <option value="medium">Medium</option>
@@ -38,11 +48,13 @@ function Product({location: {props: {product}}}) {
                             </div>
                             <div className="col-6">
                                 <label for="quantity">Quantity:</label>
-                                <input value='1' id="quantity" name="quantity" type="number"
-                                       className="form-control quantity  mb-4"/>
+                                <input value={details.quantity} id="quantity" name="quantity" type="number"
+                                       className="form-control quantity  mb-4"
+                                onChange={handleOnChange}/>
                             </div>
                         </div>
-                        <button className="btn btn-full-width btn-lg btn-outline-orange">Add to cart</button>
+                        <button className="btn btn-full-width btn-lg btn-outline-orange"
+                        onClick={addToCart}>Add to cart</button>
                     </div>
                 </div>
                 <div className="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
