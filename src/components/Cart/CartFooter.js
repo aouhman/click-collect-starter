@@ -8,12 +8,12 @@ const styles = {
   }
 }
   
-function CartFooter() {
+function CartFooter({total}) {
     return(
       <>
        <div className="text-right mb-4">
           <h4>Subtotal:</h4>
-          <h1>€0.00</h1>
+          <h1>€{total.toFixed(2)}</h1>
         </div>  
         <div className="d-flex justify-content-between">
         <Link  to="/">
