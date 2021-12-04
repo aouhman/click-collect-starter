@@ -14,7 +14,7 @@ function Cart() {
             <tbody>
             {!items.length && <div> No Items in the cart yet </div>}
             {items.map((item) =>(
-                <Row {...item}/>
+                <Row key={item.id} {...item}/>
             ))}
             </tbody>
             <CartFooter total={total}/>

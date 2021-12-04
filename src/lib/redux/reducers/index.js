@@ -1,5 +1,4 @@
 import {createStore} from "redux";
-import {act} from "@testing-library/react";
 function reducer(state = {items:[]}, action) {
     switch (action.type) {
         case "ADD_TO_CART":

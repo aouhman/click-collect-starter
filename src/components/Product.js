@@ -19,7 +19,7 @@ function Product({location: {props: {product}}}) {
                 <div className="row">
                     <div className="col-md-6 text-center">
                         <div className="product-image d-block mt-3">
-                            <img className="img-fluid" src={`images/${product.id}.png`}/>
+                            <img className="img-fluid" alt={product.name} src={`images/${product.id}.png`}/>
                         </div>
                     </div>
                     <div className="col-md-6 mt-5 mt-md-2 text-center text-md-left">
@@ -42,7 +42,7 @@ function Product({location: {props: {product}}}) {
                                 <select value={details.size} name="size" id="size"
                                         className="custom-select form-control  mb-4"
                                         onChange={handleOnChange}>
-                                    <option selected="">Size</option>
+                                    <option >Size</option>
                                     <option value="small">Small</option>
                                     <option value="medium">Medium</option>
                                     <option value="large">Large</option>

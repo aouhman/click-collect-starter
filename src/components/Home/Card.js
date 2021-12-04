@@ -10,7 +10,7 @@ function Card({product}) {
           <img
             src={`images/${id}.png`}
             className="img-fluid mx-auto d-block"
-            alt="Card image cap"
+            alt="Card cap"
           />
         </div>
         <div className="card-body text-center">

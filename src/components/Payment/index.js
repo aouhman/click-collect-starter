@@ -56,7 +56,7 @@ function Payment() {
                 </div>
                 {/* Paypal button */}
                 <hr className="mb-4" />
-                <button className="btn btn-primary btn-lg btn-block" type="submit"><i class="far fa-credit-card"></i> Confirmer</button>
+                <button className="btn btn-primary btn-lg btn-block" type="submit"><i className="far fa-credit-card"></i> Confirmer</button>
              </form> 
             </div>
           </div>
