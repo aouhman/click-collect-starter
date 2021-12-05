@@ -1,6 +1,5 @@
 import {useDispatch} from "react-redux";
-import {updateCart} from "../../lib/redux/reducers";
-import {removeToCart} from "../../lib/redux/reducers";
+import {updateCart,removeToCart} from "../../lib/redux/reducers/cart";
 
 function Row({id, name, price, quantity}) {
     const dispatch = useDispatch();

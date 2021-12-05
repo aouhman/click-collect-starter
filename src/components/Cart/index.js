@@ -6,7 +6,7 @@ import {selectorCartTotal} from "../../lib/redux/selectors/selector";
 import Row from "./Row";
 
 function Cart() {
-    const items = useSelector((state) => state.items)
+    const items = useSelector((state) => state.cart.items)
     const total =useSelector(selectorCartTotal);
 
     return (

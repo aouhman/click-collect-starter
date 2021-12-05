@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {addToCart} from "../lib/redux/reducers";
+import {addToCart} from "../lib/redux/reducers/cart";
 
 
 function Product({location: {props: {product}}}) {

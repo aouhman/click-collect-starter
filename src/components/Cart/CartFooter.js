@@ -9,7 +9,7 @@ const styles = {
 }
   
 function CartFooter({total}) {
-    const items = useSelector((state)=> state.items)
+    const items = useSelector((state)=> state.cart.items)
 
     return(
       <>

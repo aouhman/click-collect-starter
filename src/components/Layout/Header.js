@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import {selectorCartTotal} from "../../lib/redux/selectors/selector";
 import GoogleBtn from "./GoogleBtn";
 function CartDropdown({ show, handleOnClick }) {
-	const items = useSelector((state)=> state.items)
+	const items = useSelector((state)=> state.cart.items)
 	const total = useSelector(selectorCartTotal );
 	return(
 	<div onClick={handleOnClick} className={`dropdown-menu dropdown-menu-right p-3 ${show && 'show'}`} aria-labelledby="dropdownCart" style={{minWidth:'300px'}}>
@@ -39,6 +39,7 @@ function Header() {
 	const [currentLink] = React.useState('')
 	const [show, setShow] = React.useState(false)
 	const links = [ "cart", "orders"]
+	const items = useSelector((state)=> state.cart.items)
 	const handleOnClick = () => setShow(!show)
     return( 
 	<header className="target-hover">
@@ -61,7 +62,7 @@ function Header() {
 		
 			<li className="nav-item dropdown" onClick={() => setShow(!show)} >
 				<button   className={`nav-link dropdown-toggle ${show && 'show'}`} >
-				<i className="fas fa-shopping-cart"></i> <span className="badge bg-orange"></span></button>
+				<i className="fas fa-shopping-cart"></i> <span className="badge bg-orange">{items.length}</span></button>
 				<CartDropdown show={show} handleOnClick={handleOnClick}/>
 		   </li>  
         </ul>
