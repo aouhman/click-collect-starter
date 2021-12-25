@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Card({product}) {
-    const {id ,name,price} = product;
+function Card({ product }) {
+  const { id, name, price } = product;
   return (
     <div className="col-6 col-md-6 col-lg-4 mb-3">
       <div className="card h-100 border-0">
@@ -10,7 +10,7 @@ function Card({product}) {
           <img
             src={`images/${id}.png`}
             className="img-fluid mx-auto d-block"
-            alt="Card cap"
+            alt={name}
           />
         </div>
         <div className="card-body text-center">
@@ -18,7 +18,7 @@ function Card({product}) {
             <Link
               to={{
                 pathname: "/product",
-                props: { product },
+                props: { product: product },
               }}
               className=" font-weight-bold text-dark text-uppercase small"
             >

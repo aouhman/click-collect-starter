@@ -31,7 +31,7 @@ const FiltersProvider = ({ children }) => {
       updateFilters,
       filtersChecked: filtersKeys(),
     };
-  }, [category, filtersChecked]);
+  }, [category, filters, categories, filtersChecked]);
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
 
