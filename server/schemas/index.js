@@ -1,5 +1,8 @@
 const graphql = require('graphql')
 const Product = require('../models/product')
+const Order =  require('../models/order')
+const {GraphQLID} = require("graphql");
+
 
 const {
     GraphQLSchema,
@@ -17,6 +20,18 @@ const ProductType = new GraphQLObjectType({
         category: { type: GraphQLString}, 
         filter: { type: GraphQLString}, 
         price : { type: GraphQLFloat}, 
+    })
+})
+const OrderType  = new GraphQLObjectType({
+    name: 'Order',
+    fields: () => ({
+        id: { type: GraphQLID},
+        ownerId: { type: GraphQLString},
+        date: { type: GraphQLString},
+        pickupDate: { type: GraphQLString},
+        clientDetails : { type: GraphQLString},
+        total : { type: GraphQLFloat},
+        items:{type:GraphQLList(ProductType)}
     })
 })
 
@@ -43,6 +58,37 @@ const RootQuery = new GraphQLObjectType({
         } 
     }
 },
+})
+const Mutation = new GraphQLObjectType({
+    name:"Mutation",
+    fields:{
+        addOrder:{
+            type:OrderType,
+            args: {
+                id: { type: GraphQLID},
+                ownerId: { type: GraphQLString},
+                date: { type: GraphQLString},
+                pickupDate: { type: GraphQLString},
+                clientDetails : { type: GraphQLString},
+                total : { type: GraphQLFloat},
+                items:{type:GraphQLList(ProductType)}
+            }
+        },
+        resolve(parent,args){
+            let order = new Order({
+                id:args.id,
+                ownerId:args.ownerId,
+                date:args.date,
+                pickupDate:args.pickupDate,
+                clientDetails:args.clientDetails,
+                total:args.total,
+                items:args.items
+            })
+            return order.save()
+
+
+        }
+    }
 })
 
 var schema = new GraphQLSchema({
